@@ -4,18 +4,9 @@ import App from './App';
 import { name as appName } from './app.json';
 import * as React from 'react';
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'tomato',
-    accent: 'yellow',
-  },
-};
-
 export default function Main() {
   return (
-    <PaperProvider theme={theme}>
+    <PaperProvider>
       <App />
     </PaperProvider>
   );
