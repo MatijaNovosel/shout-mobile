@@ -34,7 +34,7 @@ interface User {
   svg: string;
 }
 
-const users = range(0, 5, 1).map<User>(n => {
+const users = range(0, 25, 1).map<User>(n => {
   let svg = createAvatar(style, {
     seed: `user_${n}`
   });
@@ -61,7 +61,7 @@ export const Chats = () => {
             titleStyle={styles.listItemTitleStyle}
             description={() =>
               <View style={styles.rowStyle}>
-                { randInt(0, 1) === 0 ? <MaterialIcon style={{ marginRight: 3 }} size="medium" color="#8596A0" name="check-all" /> : null }
+                { randInt(0, 2) === 0 ? <MaterialIcon style={{ marginRight: 3 }} size="medium" color="#8596A0" name="check-all" /> : null }
                 <Text style={styles.listItemDescriptionStyle}>
                   Message
                 </Text>
@@ -76,6 +76,15 @@ export const Chats = () => {
                 size={48}
                 source={() => <SvgCss xml={user.svg} width="100%" height="100%" />}
               />
+            }
+            right={() =>
+              <Text style={{
+                color: "#87959E",
+                marginTop: 10,
+                marginRight: 5
+              }}>
+                Yesterday
+              </Text>
             }
           />
         )}

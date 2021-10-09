@@ -11,7 +11,7 @@ export interface IconProps {
   size: IconSizeProps['iconSizes'];
   name: string;
   color: string;
-  style: any;
+  style?: any;
 }
 
 export const IconSizes = {

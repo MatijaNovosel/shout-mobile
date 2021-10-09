@@ -7,10 +7,12 @@ import {
   View
 } from "react-native";
 import { List, Avatar, Text } from 'react-native-paper';
-import { range, getRandomNameAndSurname } from "./utils/helpers";
+import { range, getRandomNameAndSurname, randInt } from "./utils/helpers";
 import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/miniavs';
 import { SvgCss } from "react-native-svg";
+import { MaterialIcon } from "./components/Icon";
+import { format } from "date-fns";
 
 const styles = StyleSheet.create({
   listItemTitleStyle: {
@@ -33,7 +35,7 @@ interface User {
   svg: string;
 }
 
-const users = range(0, 5, 1).map<User>(n => {
+const users = range(0, 12, 1).map<User>(n => {
   let svg = createAvatar(style, {
     seed: `user_${n}`
   });
@@ -60,8 +62,14 @@ export const Calls = () => {
             titleStyle={styles.listItemTitleStyle}
             description={() =>
               <View style={styles.rowStyle}>
+                <MaterialIcon
+                  style={{ marginRight: 3 }}
+                  size="medium"
+                  color={randInt(0, 2) === 0 ? "#5cb52b" : "#a11818"}
+                  name={randInt(0, 2) === 0 ? "arrow-bottom-left-thick" : "arrow-top-right-thick"}
+                />
                 <Text style={styles.listItemDescriptionStyle}>
-                  Message
+                  { format(new Date(), "dd.MM.yyyy. hh:mm") }
                 </Text>
               </View>
             }
@@ -75,6 +83,7 @@ export const Calls = () => {
                 source={() => <SvgCss xml={user.svg} width="100%" height="100%" />}
               />
             }
+            right={() => <MaterialIcon style={{ marginRight: 5, marginTop: 15 }} size="large" color="#00A884" name="phone" />}
           />
         )}
       </ScrollView>
