@@ -51,7 +51,7 @@ export const Calls = () => {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor="#1F2C34" />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={{ backgroundColor: "#000000" }}>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
         {users.map(user =>
           <List.Item
             key={user.id}
@@ -65,7 +65,7 @@ export const Calls = () => {
                 <MaterialIcon
                   style={{ marginRight: 3 }}
                   size="medium"
-                  color={randInt(0, 2) === 0 ? "#5cb52b" : "#a11818"}
+                  color={randInt(0, 2) === 0 ? "#437528" : "#a11818"}
                   name={randInt(0, 2) === 0 ? "arrow-bottom-left-thick" : "arrow-top-right-thick"}
                 />
                 <Text style={styles.listItemDescriptionStyle}>

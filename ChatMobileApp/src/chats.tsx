@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View
 } from "react-native";
-import { List, Avatar, Text } from 'react-native-paper';
+import { List, Avatar, Text, FAB } from 'react-native-paper';
 import { range, getRandomNameAndSurname, randInt } from "./utils/helpers";
 import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/miniavs';
@@ -25,6 +25,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: "center"
+  },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "#00A884"
   }
 });
 
@@ -49,8 +56,13 @@ const users = range(0, 25, 1).map<User>(n => {
 export const Chats = () => {
   return (
     <SafeAreaView>
+      <FAB
+        style={styles.fab}
+        icon="message-reply-text"
+        onPress={() => console.log('Pressed')}
+      />
       <StatusBar backgroundColor="#1F2C34" />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={{ backgroundColor: "#000000" }}>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
         {users.map(user =>
           <List.Item
             key={user.id}
