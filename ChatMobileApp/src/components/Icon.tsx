@@ -11,6 +11,7 @@ export interface IconProps {
   size: IconSizeProps['iconSizes'];
   name: string;
   color: string;
+  style: any;
 }
 
 export const IconSizes = {
@@ -20,6 +21,6 @@ export const IconSizes = {
   extraLarge: 27,
 };
 
-export const MaterialIcon = ({size, name, color}: IconProps) => (
-  <MIcon name={name} size={IconSizes[size]} color={color} />
+export const MaterialIcon = ({size, name, color, style}: IconProps) => (
+  <MIcon style={style} name={name} size={IconSizes[size]} color={color} />
 );

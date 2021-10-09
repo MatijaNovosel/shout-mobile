@@ -7,10 +7,11 @@ import {
   View
 } from "react-native";
 import { List, Avatar, Text } from 'react-native-paper';
-import { range, getRandomNameAndSurname } from "./utils/helpers";
+import { range, getRandomNameAndSurname, randInt } from "./utils/helpers";
 import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/miniavs';
 import { SvgCss } from "react-native-svg";
+import { MaterialIcon } from "./components/Icon";
 
 const styles = StyleSheet.create({
   listItemTitleStyle: {
@@ -60,6 +61,7 @@ export const Chats = () => {
             titleStyle={styles.listItemTitleStyle}
             description={() =>
               <View style={styles.rowStyle}>
+                { randInt(0, 1) === 0 ? <MaterialIcon style={{ marginRight: 3 }} size="medium" color="#8596A0" name="check-all" /> : null }
                 <Text style={styles.listItemDescriptionStyle}>
                   Message
                 </Text>
