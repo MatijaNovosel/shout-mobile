@@ -11,12 +11,16 @@ interface Props {
 export const ChatMessage = ({ content, sentAt, userId }: Props) => {
   return (
     <View style={{
-      backgroundColor: "#1F2C34",
-      width: "50%",
+      backgroundColor: userId === 1 ? "#005D4B" : "#1F2C34",
+      maxWidth: "90%",
       padding: 10,
-      borderRadius: 6
+      borderRadius: 12,
+      marginBottom: 5,
+      alignSelf: userId === 1 ? "flex-end" : "auto"
     }}>
-      <Text>
+      <Text style={{
+        color: "white"
+      }}>
         { content }
       </Text>
     </View>
