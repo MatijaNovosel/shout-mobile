@@ -1,10 +1,7 @@
 import { StackHeaderProps } from "@react-navigation/stack";
 import { StyleSheet, Text, View } from "react-native";
-import { Appbar, Avatar, Button } from "react-native-paper"
+import { Appbar, Avatar } from "react-native-paper"
 import * as React from 'react';
-import { SvgCss } from "react-native-svg";
-import { createAvatar } from "@dicebear/avatars";
-import * as style from '@dicebear/miniavs';
 
 const styles = StyleSheet.create({
   appBar: {
@@ -14,10 +11,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     backgroundColor: "#1F2C34"
   }
-});
-
-const svg = createAvatar(style, {
-  seed: `user_567`
 });
 
 export const CustomAppBar = ({ navigation, back, route }: StackHeaderProps) =>
@@ -39,14 +32,14 @@ export const CustomAppBar = ({ navigation, back, route }: StackHeaderProps) =>
         }}>
           <Avatar.Image
             size={38}
-            source={() => <SvgCss xml={svg} />}
+            source={require("../../assets/plenkovic.jpg")}
           />
           <Text style={{
             marginLeft: 10,
             color: "#E9EDF0",
-            fontSize: 24
+            fontSize: 20
           }}>
-            Marko Markovic
+            Andrej Plenković
           </Text>
         </View>
         <Appbar.Action icon="camera" color="white" onPress={() => {}} />
