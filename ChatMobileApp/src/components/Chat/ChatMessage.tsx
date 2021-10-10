@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import React from "react"
 import { View } from "react-native"
 import { Text } from "react-native-paper";
@@ -22,6 +23,14 @@ export const ChatMessage = ({ content, sentAt, userId }: Props) => {
         color: "white"
       }}>
         { content }
+      </Text>
+      <Text style={{
+        alignSelf: "flex-end",
+        fontSize: 12,
+        color: "#8596A0",
+        marginTop: -10
+      }}>
+        {format(sentAt, "HH:mm")}
       </Text>
     </View>
   );
