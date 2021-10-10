@@ -12,6 +12,7 @@ import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/miniavs';
 import { SvgCss } from "react-native-svg";
 import { MaterialIcon } from "./components/Icon";
+import { useNavigation } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   listItemTitleStyle: {
@@ -54,6 +55,8 @@ const users = range(0, 25, 1).map<User>(n => {
 });
 
 export const Chats = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView>
       <FAB
@@ -61,7 +64,6 @@ export const Chats = () => {
         icon="message-reply-text"
         onPress={() => console.log('Pressed')}
       />
-      <StatusBar backgroundColor="#1F2C34" />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         {users.map(user =>
           <List.Item
@@ -73,7 +75,7 @@ export const Chats = () => {
             titleStyle={styles.listItemTitleStyle}
             description={() =>
               <View style={styles.rowStyle}>
-                { randInt(0, 2) === 0 ? <MaterialIcon style={{ marginRight: 3 }} size="medium" color="#8596A0" name="check-all" /> : null }
+                {randInt(0, 2) === 0 ? <MaterialIcon style={{ marginRight: 3 }} size="medium" color="#8596A0" name="check-all" /> : null}
                 <Text style={styles.listItemDescriptionStyle}>
                   Message
                 </Text>
@@ -98,6 +100,9 @@ export const Chats = () => {
                 Yesterday
               </Text>
             }
+            onPress={() => {
+              navigation.navigate("ChatDetails" as never, {} as never);
+            }}
           />
         )}
       </ScrollView>
