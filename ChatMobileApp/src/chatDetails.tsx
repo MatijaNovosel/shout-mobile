@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { LegacyRef, useEffect, useRef, useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, View, TextInput } from "react-native";
 import { FAB } from "react-native-paper";
 import { ChatMessage } from "./components/Chat/ChatMessage";
@@ -12,23 +12,26 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 60,
-    backgroundColor: "#1F2C34"
+    backgroundColor: "#1F2C34",
+    zIndex: 100
   }
 });
 
 export const ChatDetails = () => {
-  let scrollViewRef: ScrollView | null = null;
+  const scrollViewRef = useRef<ScrollView>(null);
 
   const [msgText, setMsgText] = React.useState<string>("");
   const [messages, setMessages] = React.useState<ChatMessageModel[]>([]);
   const [FABVisible, setFABVisible] = useState<boolean>(true);
 
   const scrollToEnd = () => {
-    scrollViewRef?.scrollToEnd({ animated: false });
+    if (scrollViewRef) {
+      scrollViewRef.current?.scrollToEnd({ animated: false });
+    }
   }
 
   const generateMessages = () => {
-    setMessages(range(0, 15, 1).map((n) => ({
+    setMessages(range(0, 15, 1).map(() => ({
       content: loremIpsum.substring(0, randInt(20, 200)),
       sentAt: new Date(),
       userId: randInt(0, 2)
@@ -36,7 +39,6 @@ export const ChatDetails = () => {
   }
 
   useEffect(() => {
-    scrollToEnd();
     generateMessages();
   }, [])
 
@@ -59,8 +61,7 @@ export const ChatDetails = () => {
               setFABVisible(true);
             }
           }}
-          ref={ref => scrollViewRef = ref}
-          contentInsetAdjustmentBehavior="automatic"
+          ref={scrollViewRef}
         >
           {messages.map((msg, i) => <ChatMessage {...msg} key={i} />)}
         </ScrollView>

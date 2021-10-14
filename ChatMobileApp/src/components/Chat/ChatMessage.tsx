@@ -28,7 +28,7 @@ export const ChatMessage = ({ content, sentAt, userId }: Props) => {
         alignSelf: "flex-end",
         fontSize: 12,
         color: "#8596A0",
-        marginTop: -10
+        marginTop: 0
       }}>
         {format(sentAt, "HH:mm")}
       </Text>
