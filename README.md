@@ -1,6 +1,6 @@
-<h1 align=center>Mobile chat app</h1>
+<h1 align=center>Fanfare mobile</h1>
 <p align=center>
-  Mobile chat app, based on WhatsApp.
+  Fanfare mobile implementation, based on WhatsApp.
 </p>
 <p align=center>
   🌐 <a href="https://github.com/MatijaNovosel/chat-app-web"> Web version </a>
