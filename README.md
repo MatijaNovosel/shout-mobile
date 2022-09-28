@@ -1,9 +1,9 @@
-<h1 align=center>Fanfare mobile</h1>
+<h1 align=center>Shout mobile</h1>
 <p align=center>
-  Fanfare mobile implementation, based on WhatsApp.
+  Shout mobile implementation, based on WhatsApp.
 </p>
 <p align=center>
-  🌐 <a href="https://github.com/MatijaNovosel/chat-app-web"> Web version </a>
+  🌐 <a href="https://github.com/MatijaNovosel/shout"> Web version </a>
 </p>
 
 <p align="center">
